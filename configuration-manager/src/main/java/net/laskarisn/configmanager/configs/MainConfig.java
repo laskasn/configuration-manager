@@ -3,6 +3,7 @@ package net.laskarisn.configmanager.configs;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 
@@ -11,6 +12,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @EnableWebMvc
 public class MainConfig extends WebMvcConfigurerAdapter {
 
+	//that's actually for swagger
+	@Override
+	public void addViewControllers(ViewControllerRegistry registry) {
+	    registry.addRedirectViewController("", "swagger-ui.html");
+	}
     
     //that's actually for swagger
     @Override
